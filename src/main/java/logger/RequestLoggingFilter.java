@@ -86,14 +86,16 @@ public class RequestLoggingFilter implements Filter {
         // Mask headers
         Map<String, String> headers = new HashMap<>();
         Enumeration<String> headerNames = req.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String name = headerNames.nextElement();
-            if(properties.getHeaders().contains(name)) {
-                String value = req.getHeader(name);
-                if (properties.getMaskHeaders() != null && properties.getMaskHeaders().contains(name)) {
-                    value = "****";
+        if(headerNames != null) {
+            while (headerNames.hasMoreElements()) {
+                String name = headerNames.nextElement();
+                if(properties.getHeaders().contains(name)) {
+                    String value = req.getHeader(name);
+                    if (properties.getMaskHeaders() != null && properties.getMaskHeaders().contains(name)) {
+                        value = "****";
+                    }
+                    headers.put(name, value);
                 }
-                headers.put(name, value);
             }
         }
 
