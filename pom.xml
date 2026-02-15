@@ -4,7 +4,7 @@
 
   <groupId>io.github.brodigy</groupId>
   <artifactId>spring-boot-lightweight-api-logger</artifactId>
-  <version>1.0.0-M4</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>spring-boot-lightweight-api-logger Maven Plugin</name>
